@@ -31,3 +31,13 @@ class Network(nn.Module):
         x = F.relu(self.fc1(state))
         q_values = self.fc2(x)
         return q_values
+ 
+    
+#Implementing Experience Replay
+    
+class ReplayMemory(object):
+    
+    #capacity: transitions or steps to be remembered
+    def __init__(self, capacity):
+        self.cpacity = capacity
+        self.memory = []
