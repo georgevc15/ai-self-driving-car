@@ -37,7 +37,13 @@ class Network(nn.Module):
     
 class ReplayMemory(object):
     
-    #capacity: transitions or steps to be remembered
+    #capacity: events or steps to be remembered
     def __init__(self, capacity):
-        self.cpacity = capacity
+        self.capacity = capacity
         self.memory = []
+        
+    def push(self, event):
+        self.memory.append(event)
+        if len(self.memory) > self.capacity:
+            del self.memory[0]
+        
