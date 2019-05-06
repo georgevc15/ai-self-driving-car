@@ -50,4 +50,10 @@ class ReplayMemory(object):
     def sample(self, batch_size):
         samples = zip(*random.sample(self.memory, batch_size))
         return map(lambda x: Variable(torch.cat(x, 0)), samples)
+    
+# Implementing Deep Q Learning  
         
+    class Dqn():
+        
+        #gamma delay operator
+        def __init__(self, input_size, nb_action, gamma):
