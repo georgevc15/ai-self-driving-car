@@ -98,6 +98,8 @@ class ReplayMemory(object):
                 del self.reward_window[0]
             return action
         
+        def score(self):
+            return sum(self.reward_window)/(len(self.reward_window)+1)
 
             
                 
