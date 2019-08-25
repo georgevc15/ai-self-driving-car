@@ -70,7 +70,7 @@ class ReplayMemory(object):
             
 #module that enable the cars to take the right moves(straight, left or right) and avoid obstacles
         def select_action(self, state):
-            probs = F.softmax(self.model(Variable(state, volatile = True))* 7) #Temparature equals 7
+            probs = F.softmax(self.model(Variable(state, volatile = True))* 0) #Temparature equals 7
             action = probs.multinomial()
             return action.data[0,0]
         
